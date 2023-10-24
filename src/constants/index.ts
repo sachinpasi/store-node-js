@@ -23,6 +23,7 @@ const CONSTANTS = {
     },
     BRAND_ROUTES: {
       CREATE: "/create",
+      GET_ALL_BRANDS: "/get-all-brands",
     },
   },
 
@@ -36,6 +37,7 @@ const CONSTANTS = {
     EMAIL_PASSWORD: "EMAIL_PASSWORD",
   },
 
+  FETCH_SUCCESS: "Fetch successfull",
   USER_ALREADY_EXIST:
     "An account with the provided email or username already exists. Please choose a different email or username.",
   USER_CREATION_FAILED:
@@ -51,6 +53,8 @@ const CONSTANTS = {
   TOKEN_EXPIRED:
     "Access denied. Your session has expired or your credentials are invalid. Please log in again.",
   CATEGORY_CREATED: "Category created successfully",
+  CATEGORY_ALREADY_EXIST:
+    "An category with the provided name already exists. Please choose a different name",
   BRAND_ALREADY_EXIST:
     "An brand with the provided name already exists. Please choose a different name",
 };

@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 interface IConstantValues {
   [key: string]: any;
 }
@@ -14,6 +16,7 @@ interface IUser extends Document {
   loginType?: string;
   isEmailVerified?: boolean;
   refreshToken?: string;
+  accessToken?: string;
   forgotPasswordToken?: string;
   forgotPasswordExpiry?: Date;
   emailVerificationToken?: string;
@@ -28,4 +31,11 @@ interface IUser extends Document {
   generateRefreshToken(): string;
 }
 
-export { IConstantValues, IUser };
+interface ICategory extends Document {
+  name: string;
+}
+interface IBrand extends Document {
+  name: string;
+}
+
+export { IConstantValues, IUser, ICategory, IBrand };

@@ -21,16 +21,34 @@ const verifyJWT = asyncWrapper(
         token,
         process.env.ACCESS_TOKEN_SECRET || ""
       );
-      const user = await User.findById(decodedToken?._id).select(
+      const user = await User.findById((<any>decodedToken)?._id).select(
         "-password -refreshToken -emailVerificationToken -emailVerificationExpiry"
       );
       if (!user) {
         throw new ErrorResponse(401, CONSTANTS.TOKEN_EXPIRED);
       }
-      req.user = user;
+      (<any>req).user = user;
+
       next();
     } catch (error) {
       throw new ErrorResponse(401, CONSTANTS.TOKEN_EXPIRED);
     }
   }
 );
+
+const verifyPermission = (roles: string[]) =>
+  asyncWrapper(async (req: Request, res: Response, next: NextFunction) => {
+    if (!(<any>req).user?._id) {
+      throw new ErrorResponse(401, "Unauthorized request");
+    }
+    if (roles.includes((<any>req).user?.role)) {
+      next();
+    } else {
+      throw new ErrorResponse(
+        403,
+        "You are not allowed to perform this action"
+      );
+    }
+  });
+
+export { verifyJWT, verifyPermission };
