@@ -1,0 +1,14 @@
+# Ignore node_modules directory
+/node_modules
+
+# Ignore log files and logs directory
+*.log
+/logs
+
+# Ignore environment variable files
+.env
+
+# Ignore OS or text editor specific files
+.DS_Store
+.vscode
+*.swp
