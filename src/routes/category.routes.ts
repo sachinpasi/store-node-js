@@ -3,7 +3,10 @@ import { CONSTANTS } from "../constants";
 import { verifyJWT, verifyPermission } from "../middleware/user.middleware";
 import { validate } from "../validators";
 import { categoryBodyValidator } from "../validators/category.validator";
-import { createCategory } from "../controllers/category.controlles";
+import {
+  createCategory,
+  getAllCategoreis,
+} from "../controllers/category.controlles";
 
 const router = Router();
 
@@ -16,5 +19,9 @@ router
     validate,
     createCategory
   );
+
+router
+  .route(CONSTANTS.ROUTES.CATEGORY_ROUTES.GET_ALL_CATEGORIES)
+  .get(getAllCategoreis);
 
 export default router;

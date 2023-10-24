@@ -5,6 +5,8 @@ const CONSTANTS = {
   PRODUCTION: "production",
   DEVLOPMENT: "development",
 
+  PAGINATION_LIMIT: 5,
+
   USER_TEMPORARY_TOKEN_EXPIRY: 20 * 60 * 1000, // 20 minutes
   ROUTES: {
     PREFIX: "/api",
@@ -20,6 +22,7 @@ const CONSTANTS = {
     },
     CATEGORY_ROUTES: {
       CREATE: "/create",
+      GET_ALL_CATEGORIES: "/get-all-categories",
     },
     BRAND_ROUTES: {
       CREATE: "/create",

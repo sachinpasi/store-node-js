@@ -5,6 +5,7 @@ import { Category } from "../models/category.model";
 import { asyncWrapper } from "../utils/asyncWrapper";
 import { ErrorResponse } from "../utils/errorResponse";
 import { SuccessResponse } from "../utils/successResponse";
+import { getMongoosePaginationOptions } from "../helper";
 
 const createCategory = asyncWrapper(async (req: Request, res: Response) => {
   const { name } = req.body;
@@ -26,4 +27,25 @@ const createCategory = asyncWrapper(async (req: Request, res: Response) => {
     .json(new SuccessResponse(200, category, "Category created successfully"));
 });
 
-export { createCategory };
+const getAllCategoreis = asyncWrapper(async (req: Request, res: Response) => {
+  const { page = 1, limit = CONSTANTS.PAGINATION_LIMIT } = req.query;
+  const categoryAggregate = Category.aggregate([{ $match: {} }]);
+
+  const categories = await (<any>Category).aggregatePaginate(
+    categoryAggregate,
+    getMongoosePaginationOptions({
+      page,
+      limit,
+      customLabels: {
+        totalDocs: "totalCategories",
+        docs: "categories",
+      },
+    })
+  );
+
+  return res
+    .status(200)
+    .json(new SuccessResponse(200, categories, CONSTANTS.FETCH_SUCCESS));
+});
+
+export { createCategory, getAllCategoreis };

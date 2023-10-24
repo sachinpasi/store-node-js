@@ -38,4 +38,16 @@ interface IBrand extends Document {
   name: string;
 }
 
-export { IConstantValues, IUser, ICategory, IBrand };
+interface IMongoosePaginationOptions {
+  page?: number;
+  limit?: number;
+  customLabels?: Record<string, string>;
+}
+
+export {
+  IConstantValues,
+  IUser,
+  ICategory,
+  IBrand,
+  IMongoosePaginationOptions,
+};

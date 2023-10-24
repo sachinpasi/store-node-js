@@ -144,6 +144,14 @@
   resolved "https://registry.npmjs.org/@types/mime/-/mime-1.3.4.tgz"
   integrity sha512-1Gjee59G25MrQGk8bsNvC6fxNiRgUlGn2wlhGf95a59DrprnnHk80FIMMFG9XHMdrfsuA119ht06QPDXA1Z7tw==
 
+"@types/mongoose-aggregate-paginate-v2@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@types/mongoose-aggregate-paginate-v2/-/mongoose-aggregate-paginate-v2-1.0.11.tgz#e939193559919d47f7dbd868de1ee55fe1ca3151"
+  integrity sha512-QeDb11JXvfcOpIX8egfg7sVyrHxlCqozYwVY9SrPmo0D2WMYlNEPnWI9Xf/LaAxyWZ5eyJzK0N0ROMkHUu6JLw==
+  dependencies:
+    "@types/node" "*"
+    mongoose ">=6.3.0"
+
 "@types/node@*":
   version "20.8.8"
   resolved "https://registry.npmjs.org/@types/node/-/node-20.8.8.tgz"
@@ -887,7 +895,12 @@ mongodb@5.9.0:
   optionalDependencies:
     "@mongodb-js/saslprep" "^1.1.0"
 
-mongoose@^7.6.3:
+mongoose-aggregate-paginate-v2@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/mongoose-aggregate-paginate-v2/-/mongoose-aggregate-paginate-v2-1.0.6.tgz#fd2f2564d1bbf52f49a196f0b7b03675913dacca"
+  integrity sha512-UuALu+mjhQa1K9lMQvjLL3vm3iALvNw8PQNIh2gp1b+tO5hUa0NC0Wf6/8QrT9PSJVTihXaD8hQVy3J4e0jO0Q==
+
+mongoose@>=6.3.0, mongoose@^7.6.3:
   version "7.6.3"
   resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-7.6.3.tgz#b06507dd164ad4426013eeb266d54aa1e5178092"
   integrity sha512-moYP2qWCOdWRDeBxqB/zYwQmQnTBsF5DoolX5uPyI218BkiA1ujGY27P0NTd4oWIX+LLkZPw0LDzlc/7oh1plg==
